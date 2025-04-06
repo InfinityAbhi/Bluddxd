@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+@import url("https://use.fontawesome.com/releases/v6.5.1/css/all.css");
+
+/* Your original styles */
+
+body, html {
+    height: auto;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto; /* or scroll */
+  }
+  
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    height: auto;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    overflow: auto;
+    background: #000;
+}
+
+section {
+    position: relative;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    overflow: visible;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: visible;
+    z-index: 1;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#1d1d1d, rgb(52, 53, 53), #000);
+    animation: animate 5s linear infinite;
+    z-index: -1;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+
+}   
+
+section span {
+    position: relative;
+    display: block;
+    width: calc(6.25vw - 1px);
+    height: calc(6.25vw - 1px);
+    background: #161515;
+    z-index: 2;
+    transition: 1.5s;
+}
+
+section span:hover {
+    background: rgb(255, 255, 255);
+    transition: 0s;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px); /* Start position (50px down) */
+        opacity: 0; /* Start fully transparent */
+    }
+    to {
+        transform: translateY(0); /* End position */
+        opacity: 1; /* Fully visible */
+    }
+
+
+}
+
+  @keyframes typing {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+  
+.about {
+    position: absolute; /* Make sure it's positioned over the animation */
+    top: 22%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    z-index: 100; /* Ensure it's above everything */
+    text-align: left;
+    color: white;
+    animation: slideUp 2s ease-out forwards;
+
+
+}
+
+.about .content h1 {
+    font-family: 'Panton Rust', serif;
+    font-size: 56px;
+    
+}
+
+.about .content h2 {
+    background-color: #000000;
+    border: #8d8686 solid;
+    font-family: 'Panton Rust', serif;
+    color: #ffffff;
+    font-size: 26px;
+}
+
+@keyframes flipImage {
+    0% {
+        transform: rotateX(0deg);
+    }
+    25% {
+        transform: rotateX(180deg);
+    }
+    50% {
+        transform: rotateX(360deg);
+    }
+    75% {
+        transform: rotateX(540deg);
+    }
+    100% {
+        transform: rotateX(720deg);
+    }
+}
+
+
+
+.photo {
+    position: absolute; /* Make sure it's positioned over the animation */
+    top: -25%;
+    left: 115%;
+    transform: translate(-50%, -50%);
+    z-index: 100; /* Ensure it's above everything */
+    text-align: center;
+    color: white;
+    animation: slideUp 2s ease-out forwards;    
+}
+
+.photo .img img {
+    top: 80%;
+    left: 80%;
+    width: 500px; /* Adjust size */
+    height: 500px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+    transform-style: preserve-3d;
+    animation: flipImage 1.5s ease-in-out; /* Flip animation */
+}
+
+/* Navbar Styling */
+.navbar {
+    position: fixed; /* Sticks to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.9); /* Slight transparency */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    z-index: 1000; /* Ensures it's above other elements */
+}
+
+/* Logo Styling */
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex; /* Aligns items horizontally */
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00aaff; /* Changes color on hover */
+}
+
+.skills {
+    position: relative;
+    padding-top: 100px; /* Adjust spacing between sections */
+    top: 40%;
+    left: 40%;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    overflow: hidden;
+    width: 100%;
+    background-color: #00000000;
+}
+
+.langu img {
+    width: 60px;
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Smooth transition on hover */
+}
+
+.langu img:hover {
+    transform: scale(3); /* Enlarge image by 20% on hover */
+}
+
+
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
